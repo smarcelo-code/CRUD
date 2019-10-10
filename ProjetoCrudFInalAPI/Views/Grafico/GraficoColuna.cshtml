@@ -1,0 +1,26 @@
+﻿@model DotNet.Highcharts.Highcharts
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "";
+}
+@*@{
+        ViewBag.Title = "Highcharts";
+    }*@
+<head>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript"
+            src="~/Scripts/Highcharts-4.0.1/js/highcharts.js"></script>
+</head>
+
+
+
+<hr />
+<div class="row">
+    <div>
+        <div class="col-md-12 col-md-6">
+            @(Model)
+        </div>
+    </div>
+</div>
+

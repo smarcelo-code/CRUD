@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
+    @RenderSection("styles", false)
+    <script src="@Url.Content("~/scripts/jquery-1.10.2.js")"></script>
+    <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
+    @Scripts.Render("~/bundles/jquery")
+    <style>
+        .page-header {
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <style>
+        .col-md-6 {
+            background-color: transparent;
+        }
+
+        .nav {
+            background-color: lightgreen;
+        }
+        /*se marcar como .container <<basicamente retirar,pq não tem container mais, retirando o fluid, sai a gif, mas a resolução melhora*/
+        .container-fluid {
+            background-image: url(../../Content/Gif2.gif);
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-header">
+                <h1> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BDO <small class="text-success"> </small> </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container-fluid">
+            @*<div class="col-xs-3 col-md-3 bg-info">*@
+            <div class=" col-md-12">
+                <ul class="nav nav-tabs col-lg-12">
+                    @*<li id="liHome" role="presentation" class="active"><a href="#">Home</a></li>*@
+                    <li id="liPersonagem" role="presentation">@Html.ActionLink("Personagens", "Index", "Personagens")</li>
+                    <li id="liInventario" role="presentation">@Html.ActionLink("Inventario", "Index", "Inventario")</li>
+                    <li id="liItens" role="presentation">@Html.ActionLink("Itens", "Index", "Itens")</li>
+                    <li id="LiCep" role="presentation">@Html.ActionLink("Cep", "Index", "Cep")</li>
+                    <li>@Html.ActionLink("Gráfico de Coluna", "GraficoColuna", "Grafico")</li>
+                </ul>
+            </div>
+        </div>
+        <div class="  col-xs-10 col-md-12">
+            <br />
+            @RenderBody()
+        </div>
+    </div>
+        </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-12 col-md-12 bg-info">
+
+        </div>
+    </div>
+    @*</div>*@
+
+    @RenderSection("ScriptPage", false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liInventario').addClass("active");
+        });
+    </script>  
+    <canvas>
+
+    </canvas>
+    <footer>      
+            
+    </footer>
+</body>
+
+</html>

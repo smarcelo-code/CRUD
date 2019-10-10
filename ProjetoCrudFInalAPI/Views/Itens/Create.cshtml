@@ -1,0 +1,141 @@
+﻿@model ProjetoCrudeFInalAPI.Models.Itens
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Registrando Itens";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="panel	panel-primary">
+        <div class="panel-heading">
+            Registro	de	Itens
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "",
+                    new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nome, htmlAttributes: new{
+                      @class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model =>
+                            model.Nome, new{htmlAttributes =
+                            new{@class =
+                            "form-control"}})
+                        @Html.ValidationMessageFor(model =>
+                            model.Nome, "", new{@class =
+                            "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.InventarioId,
+                        "InventarioId", htmlAttributes: new{
+                        @class = "control-label	col-md-2"})
+                    <div class="col-md-10">
+                        @Html.DropDownList("InventarioId", null,
+                            htmlAttributes: new{@class =
+                            "form-control"})
+                        @Html.ValidationMessageFor(model =>
+                            model.InventarioId, "", new{
+                            @class ="text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PersonagensId,
+                        "PersonagensId", htmlAttributes: new{@class =
+                        "control-label	col-md-2"})
+                    <div class="col-md-10">
+                        @Html.DropDownList("PersonagensId",
+                            null, htmlAttributes: new{@class =
+                            "form-control"})
+                        @Html.ValidationMessageFor(model =>
+                            model.PersonagensId, "", new{@class =
+                            "text-danger"})
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer	panel-info">
+                <div class="col-md-offset-2	col-md-10">
+                    <input type="submit" value="Adicionar	Item" class="btn	btn-danger" />
+                    @Html.ActionLink("Retornar para a listagem de itens", "Index", null, new{
+                        @class = "btn btn-warning"})
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+}
+@section ScriptPage{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liItens').addClass("active");
+        });
+    </script>
+}
+
+
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Create</title>
+    </head>
+    <body>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Itens</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.InventarioId, "InventarioId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("InventarioId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.InventarioId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PersonagensId, "PersonagensId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("PersonagensId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PersonagensId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </body>
+    </html>*@
